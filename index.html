@@ -1,3 +1,12 @@
+<script>
+// Ensure proper mobile viewport
+if (!document.querySelector('meta[name=viewport]')) {
+  const m = document.createElement('meta');
+  m.name = 'viewport';
+  m.content = 'width=device-width, initial-scale=1, maximum-scale=1';
+  document.head && document.head.appendChild(m);
+}
+</script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 #game { max-width: 620px; margin: 0 auto; padding: 1.25rem 1rem 2rem; font-family: var(--font-sans); }
@@ -65,6 +74,45 @@
 .music-btn { position: fixed; bottom: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: #D4537E; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(212,83,126,0.4); z-index: 100; transition: transform 0.15s, background 0.15s; }
 .music-btn:hover { transform: scale(1.1); background: #993556; }
 .music-btn.muted { background: #aaa; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  #game { padding: 0.75rem 0.75rem 5rem; }
+  .illus-wrap { min-height: 160px; }
+  .char-photo-wrap { width: 90px; height: 120px; }
+  .char-wrap { padding: 0 0.75rem 0; gap: 0; }
+  .mood-overlay { font-size: 18px; bottom: 4px; right: 4px; }
+  .char-name-tag { font-size: 10px; padding: 2px 8px; }
+  .scene-card { padding: 0.9rem 0.9rem 0.85rem; }
+  .scene-title { font-size: 15px; }
+  .scene-desc { font-size: 12px; }
+  .bubble-text { font-size: 12.5px; padding: 0.45rem 0.7rem; max-width: 78%; }
+  .msg-avatar { width: 26px; height: 26px; flex-shrink: 0; }
+  .choice-btn { font-size: 12.5px; padding: 0.65rem 0.75rem; gap: 10px; }
+  .choice-letter { width: 24px; height: 24px; font-size: 11px; flex-shrink: 0; }
+  .outcome-box { font-size: 12px; }
+  .next-btn { font-size: 12px; padding: 0.5rem 1rem; }
+  .ending-title { font-size: 17px; }
+  .ending-desc { font-size: 13px; }
+  .big-heart { font-size: 38px; }
+  .music-btn { width: 36px; height: 36px; font-size: 15px; bottom: 12px; right: 12px; }
+  .stage-label { font-size: 10px; }
+  .hearts-row { font-size: 12px; }
+  .illus-bg-label { font-size: 10px; }
+  .typing-dots span { width: 6px; height: 6px; }
+}
+
+/* Make sure the game never overflows horizontally */
+html, body { overflow-x: hidden; max-width: 100vw; }
+#game { width: 100%; }
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Bigger touch targets on mobile */
+@media (max-width: 480px) {
+  .choice-btn { min-height: 52px; }
+  .next-btn, .restart-btn { min-height: 44px; }
+}
+
 </style>
 
 
